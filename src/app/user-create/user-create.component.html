@@ -1,0 +1,18 @@
+<div class="container">
+  <form  action="action_page.php">
+    <div>
+      <label for="fname">Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name.." [(ngModel)]="username">
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input type="text" id="text" name="lastname" placeholder="Enter you message" [(ngModel)]="password">
+
+    </div>
+    <div class="ui-button">
+      <button (click)="create()" type="submit" >Submit</button>
+    </div>
+
+    <router-outlet></router-outlet>
+  </form>
