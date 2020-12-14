@@ -13,15 +13,15 @@ export class UserCreateComponent implements OnInit {
   password = '';
 
   constructor(
-  private readonly usersService: UsersService,
-  private readonly router: Router
+    private readonly usersService: UsersService,
+    private readonly router: Router
   ) {
   }
 
   ngOnInit(): void {
   }
 
-  create(): void{
+  create(): void {
     this.usersService.create(this.username, this.password).subscribe(
       user => this.router.navigateByUrl(`/user/${user.id}`)
     );

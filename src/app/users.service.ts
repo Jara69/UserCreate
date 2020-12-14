@@ -45,4 +45,15 @@ export class UsersService {
     }
 
   }
+
+  changeUser(id: number, newUsername: string): Observable<IUserEntity> {
+
+    for (const i of this.users) {
+      if (i.id === id) {
+        i.username = newUsername;
+        return of(i);
+      }
+    }
+    return of(null);
+  }
 }

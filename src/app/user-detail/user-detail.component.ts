@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {delay} from 'rxjs/operators';
 import {IUserEntity, UsersService} from '../users.service';
+import {UserCreateComponent} from '../user-create/user-create.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -11,11 +12,12 @@ import {IUserEntity, UsersService} from '../users.service';
 export class UserDetailComponent implements OnInit {
 
   user: IUserEntity;
+  username = '';
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly usersService: UsersService,
-    private readonly router: Router
+    private readonly router: Router,
   ) {
   }
 
@@ -39,4 +41,8 @@ export class UserDetailComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
+ change() {
+    this.usersService.changeUser(this.user.id, this.user.username = this.username);
+  }
 }

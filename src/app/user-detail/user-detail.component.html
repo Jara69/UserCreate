@@ -1,1 +1,24 @@
-<p>user-detail works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Id{{user?.id}}</th>
+    <th scope="col">Name{{user?.username}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">{{user?.id}}</th>
+    <td>{{user?.username}}</td>
+  </tr>
+  </tbody>
+</table>
+<h1>change user form</h1>
+<form>
+
+  <div class="form-group">
+    <label >Username</label>
+    <input [(ngModel)]="user" type="name"  name="first" class="form-control"placeholder="Username">
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="change()">idk</button>
+</form>
