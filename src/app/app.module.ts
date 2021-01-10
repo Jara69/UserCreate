@@ -9,6 +9,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule} from '@angular/forms';
+import { ExcerptPipe } from './excerpt.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {FormsModule} from '@angular/forms';
     UserCreateComponent,
     HomeComponent,
     ContactComponent,
+    ExcerptPipe,
 
   ],
     imports: [
