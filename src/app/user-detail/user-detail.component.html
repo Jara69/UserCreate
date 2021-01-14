@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" >
   <thead>
   <tr>
     <th scope="col">Id{{user?.id}}</th>
@@ -15,9 +15,15 @@
 <h1>change user form</h1>
 <form>
 
-  <div class="form-group">
+  <div class="form-group"  >
     <label >Username</label>
-    <input [(ngModel)]="user" type="name"  name="first" class="form-control"placeholder="Username">
+    <input [(ngModel)]="user" type="name"  name="first" class="form-control"placeholder="Username" required minlength="3" maxlength="10" #user2="ngModel">
+  </div>
+  <div>
+    <span *ngIf="user2.invalid" ></span>
+    <span *ngIf="user2.errors.required && user2.touched"> Povinné pole </span>
+    <span *ngIf="user2.errors.minlength && user2.touched "> Minimální délka je {{user2.errors.minlength.requiredLength}}</span>
+    <span *ngIf="user2.errors.maxlength && user2.touched"> Maximální délka je {{user2.errors.maxlength}} </span>
   </div>
 
   <button type="submit" class="btn btn-primary" (click)="change()">idk</button>

@@ -1,14 +1,25 @@
 <div class="container">
-  <form  action="action_page.php">
+  <form  action="action_page.php" #form="ngForm">
     <div>
       <label for="fname">Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name.." [(ngModel)]="username">
+      <input type="text" id="fname" name="firstname" placeholder="Your name.." required minlength="3" maxlength="10" #username2="ngModel" [(ngModel)]="username">
+    </div>
+    <div>
+      <span *ngIf="username2.invalid && username2.touched" ></span>
+      <span *ngIf="username2.errors.required">Povinné pole</span>
+        <span  *ngIf="username2.errors.minlength"> Minimální délka je {{username2.errors.minlength.requiredLength}}</span>
+        <span *ngIf="username2.errors.maxlength"> Maximální délka je {{username2.errors.maxlength}} </span>
     </div>
 
     <div>
       <label>Password</label>
-      <input type="text" id="text" name="lastname" placeholder="Enter you message" [(ngModel)]="password">
-
+      <input type="text" id="text" name="lastname" placeholder="password" required minlength="6" maxlength="15" #password2="ngModel" [(ngModel)]="password">
+    </div>
+    <div class="validation">
+      <span *ngIf="password2.invalid && password2.touched"></span>
+    <span  *ngIf="password2.errors.required">Povinné pole</span>
+    <span  *ngIf="password2.errors.minlength"> Minimální délka je {{password2.errors.required.minlength}}</span>
+    <span  *ngIf="password2.errors.maxlength"> Maximální délka je {{password2.errors.maxlength}} </span>
     </div>
     <div class="ui-button">
       <button (click)="create()" type="submit" >Submit</button>
